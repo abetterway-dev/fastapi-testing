@@ -1,0 +1,18 @@
+{
+  "name": "htmx-alpine-tailwindcss-dummy",
+  "version": "1.0.0",
+  "description": "This is an simple web interface using HTMX",
+  "scripts": {
+    "dev:style": "npx tailwindcss -i ./styles/main.css -o public/css/tailwind.css --watch",
+    "dev": "npx tailwindcss -i ./styles/main.css -o public/css/tailwind.css && uvicorn app.main:app --reload",
+    "build": "npx tailwindcss -i ./styles/main.css -o public/css/tailwind.css"
+  },
+  "keywords": ["Test Site of FastAPI"],
+  "author": "Conrad Brodeur",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
+}

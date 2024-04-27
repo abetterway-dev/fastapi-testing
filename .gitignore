@@ -1,0 +1,21 @@
+# Node Dependencies
+node_modules/
+venv
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Cloudflare
+.wrangler
+test/wrangler.toml
+
+# Local env files
+.env
+.env.*
+!.env.example

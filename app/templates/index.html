@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>FastAPI + Alpine + HTMX + TailwindCSS Example</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="assets/css/tailwind.css" />
+        <link rel="stylesheet" href="assets/css/example.css" />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.10/dist/cdn.min.js"
+        ></script>
+        <script
+            src="https://unpkg.com/htmx.org@1.9.12"
+            integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+            crossorigin="anonymous"
+        ></script>
+    </head>
+    <body class="bg-gray-50 text-gray-800">
+        <h2 class="text-2xl font-bold text-gray-900">
+            Welcome to My FastAPI Site
+        </h2>
+        <ul>
+            <li class="test">Static files loaded if I am red</li>
+            <li class="font-bold text-blue-400">
+                TailwindCSS worked if I am blue
+            </li>
+            <li>Variables passed if I say something: "{{ message }}"</li>
+        </ul>
+        <h2 class="text-2xl font-semibold pt-4">HTMX Test</h2>
+        <div class="p-4 text-black bg-gray-300">
+            <div id="content">
+                <p id="message" class="mb-2">I've said Hello 0 times</p>
+                <button
+                    class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                    hx-get="/htmx-test"
+                    hx-trigger="click"
+                    hx-target="#message"
+                    hx-swap="innerHTML"
+                >
+                    Click to say Hello
+                </button>
+            </div>
+        </div>
+
+        <h2 class="text-2xl font-semibold">Alpine Test</h2>
+        <div x-data="{ count: 0 }" class="mt-4 text-black bg-gray-400 p-4">
+            <p x-text="'Alpine Test Counter: ' + count" class="mb-2"></p>
+            <button
+                class="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                hx-post="/increment"
+                hx-swap="outerHTML"
+                x-on:click="count++"
+            >
+                Increment
+            </button>
+        </div>
+    </body>
+</html>

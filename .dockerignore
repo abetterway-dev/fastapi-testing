@@ -1,0 +1,13 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+.idea
+env
+venv
+.git
+.dockerignore
+.DS_Store
+*.swp
+.idea
